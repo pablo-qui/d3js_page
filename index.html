@@ -49,37 +49,7 @@
                 d3.selectAll("change").style("color","blue");
             }
         </script>
-        <p id="change"> </p>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <!--<table></table>-->
-        <script>
-            d3.csv("https://raw.githubusercontent.com/pablo-qui/10_02/main/category-brands.csv",
-            (d,i,c) => {
-                if (i<25){
-                    d3.select("table")
-                        .append("tr")
-                        .selectAll("td")
-                        .data(c)
-                        .enter()
-                        .append("td")
-                        .text(x => d[x])
-                }
-            }
-            )
-            
-
-            
-        </script>
-    
+        <p id="change"> </p>    
         
     </body>
 </html>
