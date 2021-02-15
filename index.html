@@ -3,12 +3,68 @@
     <head>
         <title>d3.js data driven page </title>
         <script src="https://d3js.org/d3.v6.min.js"></script>
-    
+        
     </head>
+
     <body>
-        <p>This page is inspired by the <a href="https://observablehq.com/@d3/bar-chart-race" target="_blank"><b>Bar Chart Race</b></a> by <em>Mike Bostock</em> on the we site <a href="https://observablehq.com/">Observable</a>.</p>
-        <button onclick="colorP()"> Click me </button>
-        <table></table>
+
+        <p>The text you write will appear below the show button, you can 
+            change its clour with these buttons.</p>
+        <button onclick="colorred()"> Change to red </button>
+        <button onclick="colorblue()"> Change to blue </button>
+        <br>
+        <br>
+        
+        <form onSubmit="return add()">
+            <label for="text">Write here the text you want to add:</label>
+            <input type="text" id="text_" ><br><br>
+            <input type="submit", name= "Submit" , value="Show ">
+
+          </form>
+          <br>
+          <button id="clear" onclick="clear()">Delete the text </button>
+        
+                
+        <script>
+            var dataset = [];
+            var p=d3.select("body").selectAll("change")
+            .data(dataset)
+            .text(function(d){return d});
+            function add(event){
+                console.log(document.getElementById("text_").value)
+                draw(document.getElementById("text_").value)
+                document.getElementById("text_").value = " "
+                return false;
+            } 
+            function draw(val){
+                d3.select("body").append("change");
+                dataset.push(val);
+                var p = d3.select("body").selectAll("change")
+                .data(dataset)
+                .text(function(d){return d});
+            }
+            function clear(){
+                d3.selectAll("change").remove()
+            }
+            function colorred(){
+                d3.selectAll("change").style("color","red");
+            }
+            function colorblue(){
+                d3.selectAll("change").style("color","blue");
+            }
+        </script>
+        <p id="change"> </p>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!--<table></table>-->
         <script>
             d3.csv("https://raw.githubusercontent.com/pablo-qui/10_02/main/category-brands.csv",
             (d,i,c) => {
@@ -23,9 +79,9 @@
                 }
             }
             )
-            function colorP(){
-                d3.selectAll("p").style("color","red");
-            }
+            
+
+            
         </script>
     
         
