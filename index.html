@@ -18,11 +18,10 @@
         <form onSubmit="return add()">
             <label for="text">Write here the text you want to add:</label>
             <input type="text" id="text_" ><br><br>
-            <input type="submit", name= "Submit" , value="Show ">
-
-          </form>
+            <input type="submit", name= "Submit",  value="Show ">
+        </form>
           <br>
-          <button id="clear" onclick="clear()">Delete the text </button>
+         
         
                 
         <script>
@@ -42,9 +41,6 @@
                 var p = d3.select("body").selectAll("change")
                 .data(dataset)
                 .text(function(d){return d});
-            }
-            function clear(){
-                d3.selectAll("change").remove()
             }
             function colorred(){
                 d3.selectAll("change").style("color","red");
