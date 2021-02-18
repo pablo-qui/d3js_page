@@ -30,18 +30,14 @@
             .data(dataset)
             .text(function(d){return d});
             function add(event){
-                console.log(document.getElementById("text_").value)
-                draw(document.getElementById("text_").value)
-                document.getElementById("text_").value = " "
-                return false;
-            } 
-            function draw(val){
                 d3.select("body").append("change");
-                dataset.push(val);
+                dataset.push(document.getElementById("text_").value);
                 var p = d3.select("body").selectAll("change")
                 .data(dataset)
                 .text(function(d){return d});
-            }
+                document.getElementById("text_").value = " "
+                return false;
+            } 
             function colorred(){
                 d3.selectAll("change").style("color","red");
             }
